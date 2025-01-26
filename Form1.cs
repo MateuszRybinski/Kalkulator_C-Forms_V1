@@ -15,6 +15,12 @@ namespace Kalkulator_V1
         public Form1()
         {
             InitializeComponent();
+           
+        }
+
+        private void buttP_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
