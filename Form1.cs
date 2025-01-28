@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Net.Http.Headers;
 using System.Windows.Forms;
 
 namespace Kalkulator_V1
@@ -7,14 +9,16 @@ namespace Kalkulator_V1
 
     public partial class Form1 : Form
     {
+        private Calculator calc;
         public Form1()
         {
             InitializeComponent();
+            calc = new Calculator();            
         }
 
 
         #region Wygląd_Buttonów
-        private void SetButton1_9()
+        private void SetVisualButt1_9()
         {
             // Tablica przycisków, dla których zmieniamy kolor i czcionkę
             Button[] buttons = new Button[]
@@ -42,9 +46,8 @@ namespace Kalkulator_V1
         private void SetButtonFunction()
         {           
             Button[] buttons = new Button[]
-            {
-                //butt0, butt1, butt2, butt3, butt4, butt5, butt6, butt7, butt8, butt9, // Cyfry
-                buttRuwnasie, buttMinus, buttRazy, buttDzielenie, buttPercent,buttPM, buttMinus, buttDot, buttDel// Operatory
+            {                
+                buttRuwnasie, buttMinus, buttPlus, buttDzielenie, buttRazy,buttPM, buttMinus, buttDot, buttDel// Operatory
             };
             
             Font buttonFont = new Font("Tahoma", 20);
@@ -60,29 +63,29 @@ namespace Kalkulator_V1
                 button.FlatAppearance.MouseOverBackColor = Color.FromArgb(59, 59, 59); // Tło po najechaniu
                 button.FlatAppearance.BorderColor = Color.FromArgb(59, 59, 59); // Zmieniamy kolor obramowania po najechaniu                              
                 button.FlatAppearance.MouseDownBackColor = Color.FromArgb(47, 47, 49);//Przycisniecie myszki
-            }         
-            
+            }
+
         }
         #endregion
 
         private void Form1_Load(object sender, EventArgs e)
-        {            
+        {    
             this.BackColor = Color.FromArgb(32, 32, 32);
-            SetButton1_9();
+
+            SetVisualButt1_9();
             SetButtonFunction();
 
-            listBox.Font = new Font("Tahoma", 30, FontStyle.Regular);           
+            listBox.Font = new Font("Tahoma", 50, FontStyle.Regular);
             listBox.ForeColor = Color.White;
         }
 
-
-        private void butt1_Click(object sender, EventArgs e)
+        #region 1_9Buttony
+        private void butt0_Click(object sender, EventArgs e)
         {
-            // Sprawdź, czy lista jest pusta
             if (listBox.Items.Count == 0)
             {
                 // Jeśli lista jest pusta, dodaj pierwszy "1"
-                listBox.Items.Add("1");
+                listBox.Items.Add("0");
             }
             else
             {
@@ -90,66 +93,144 @@ namespace Kalkulator_V1
                 string currentText = listBox.Items[0].ToString();
 
                 // Dopisz "1" do istniejącego tekstu
-                currentText += "1";
+                currentText += "0";
 
                 // Zaktualizuj element w ListBox
                 listBox.Items[0] = currentText;
             }
         }
 
-        private void butt2_Click(object sender, EventArgs e)
+
+
+        
+
+
+        
+
+
+
+
+
+
+
+        private void butt3_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            
+            if (listBox.Items.Count == 0)
+            {               
+                listBox.Items.Add("3");
+            }
+            else
+            {               
+                string currentText = listBox.Items[0].ToString();
+                currentText += "3";
+                listBox.Items[0] = currentText;
+            }
         }
 
         private void butt4_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void butt5_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void butt6_Click(object sender, EventArgs e)
-        {
-
+        {            
+            
         }
 
         private void butt7_Click(object sender, EventArgs e)
         {
-
         }
 
         private void butt8_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void butt9_Click(object sender, EventArgs e)
         {
+        }
+        #endregion
 
+        bool _klawiszFunkcyjnyByl = false;
+        private void butt1_Click(object sender, EventArgs e)
+        {
+            string buttonValue = "1";
+            
+            if (_klawiszFunkcyjnyByl == true)
+            {
+                listBox.Items.Clear();
+                listBox.Items.Add(buttonValue);
+                _klawiszFunkcyjnyByl = false;
+            }
+            else
+            {
+                if (listBox.Items.Count == 0)//handlowanie pustego pola
+                {
+                    listBox.Items.Add(buttonValue);
+                }
+                else
+                {
+                    string currentText = listBox.Items[0].ToString();
+                    listBox.Items[0] = currentText + buttonValue;
+                }
+            }
         }
 
+        private void butt2_Click(object sender, EventArgs e)
+        {
+            string buttonValue = "2";
+
+            if (_klawiszFunkcyjnyByl == true)
+            {
+                listBox.Items.Clear();
+                listBox.Items.Add(buttonValue);
+                _klawiszFunkcyjnyByl = false;
+            }
+            else
+            {
+                if (listBox.Items.Count == 0)//handlowanie pustego pola
+                {
+                    listBox.Items.Add(buttonValue);
+                }
+                else
+                {
+                    string currentText = listBox.Items[0].ToString();
+                    listBox.Items[0] = currentText + buttonValue;
+                }
+            }
+
+        }
+        
+
+       
+        private void buttPlus_Click(object sender, EventArgs e)
+        {
+            
+            _klawiszFunkcyjnyByl = true;
+            string currentText = listBox.Items[0].ToString();
+
+            listBox.Items.Clear();
+
+            calc.Plus(currentText);
+            label1.Text = calc.displayResult();
+            listBox.Items.Add(calc.displayResult());
+
+        }
         private void buttRuwnasie_Click(object sender, EventArgs e)
         {
-
+            //?
         }
-
         private void buttMinus_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttRazy_Click(object sender, EventArgs e)
-        {
-
+            
+            string currentText = listBox.Items[0].ToString();
+            
         }
 
         private void buttDzielenie_Click(object sender, EventArgs e)
@@ -172,9 +253,31 @@ namespace Kalkulator_V1
 
         }
 
-        private void buttPercent_Click(object sender, EventArgs e)
+        private void buttRazy_Click(object sender, EventArgs e)
         {
 
         }
+
+        //public void DisplayItemsInListBox(string value)
+        //{
+        //    if (isFunctionClicked == false)
+        //    {
+        //        if (listBox.Items.Count == 0)
+        //        {
+        //            listBox.Items.Add(value);
+        //        }
+        //        else
+        //        {
+        //            string currentText = listBox.Items[0].ToString();
+        //            listBox.Items[0] = currentText + value;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        listBox.Items.Clear();
+        //        listBox.Items.Add(value);
+        //        isFunctionClicked = false;
+        //    }
+        //}
     }
 }
