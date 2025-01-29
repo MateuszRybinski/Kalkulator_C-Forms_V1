@@ -77,6 +77,9 @@ namespace Kalkulator_V1
 
             listBox.Font = new Font("Tahoma", 50, FontStyle.Regular);
             listBox.ForeColor = Color.White;
+
+            label2.Text = "";
+            label1.Text = "";
         }
 
         #region 1_9Buttony
@@ -99,13 +102,59 @@ namespace Kalkulator_V1
                 listBox.Items[0] = currentText;
             }
         }
+        private void butt1_Click(object sender, EventArgs e)
+        {
+            string buttonValue = "1";
+
+            if (_klawiszFunkcyjnyByl == true)
+            {
+                listBox.Items.Clear();
+                listBox.Items.Add(buttonValue);
+                _klawiszFunkcyjnyByl = false;
+            }
+            else
+            {
+                if (listBox.Items.Count == 0)//handlowanie pustego pola
+                {
+                    listBox.Items.Add(buttonValue);
+                }
+                else
+                {
+                    string currentText = listBox.Items[0].ToString();
+                    listBox.Items[0] = currentText + buttonValue;
+                }
+            }
+        }
+
+        private void butt2_Click(object sender, EventArgs e)
+        {
+            string buttonValue = "2";
+
+            if (_klawiszFunkcyjnyByl == true)
+            {
+                listBox.Items.Clear();
+                listBox.Items.Add(buttonValue);
+                _klawiszFunkcyjnyByl = false;
+            }
+            else
+            {
+                if (listBox.Items.Count == 0)//handlowanie pustego pola
+                {
+                    listBox.Items.Add(buttonValue);
+                }
+                else
+                {
+                    string currentText = listBox.Items[0].ToString();
+                    listBox.Items[0] = currentText + buttonValue;
+                }
+            }
+        }
 
 
 
-        
 
 
-        
+
 
 
 
@@ -159,53 +208,7 @@ namespace Kalkulator_V1
 
         bool _klawiszFunkcyjnyByl = false;
         string _jakiKlawiszFunkcyjny;
-        private void butt1_Click(object sender, EventArgs e)
-        {
-            string buttonValue = "1";
-            
-            if (_klawiszFunkcyjnyByl == true)
-            {
-                listBox.Items.Clear();
-                listBox.Items.Add(buttonValue);
-                _klawiszFunkcyjnyByl = false;
-            }
-            else
-            {
-                if (listBox.Items.Count == 0)//handlowanie pustego pola
-                {
-                    listBox.Items.Add(buttonValue);
-                }
-                else
-                {
-                    string currentText = listBox.Items[0].ToString();
-                    listBox.Items[0] = currentText + buttonValue;
-                }
-            }
-        }
 
-        private void butt2_Click(object sender, EventArgs e)
-        {
-            string buttonValue = "2";
-
-            if (_klawiszFunkcyjnyByl == true)
-            {
-                listBox.Items.Clear();
-                listBox.Items.Add(buttonValue);
-                _klawiszFunkcyjnyByl = false;
-            }
-            else
-            {
-                if (listBox.Items.Count == 0)//handlowanie pustego pola
-                {
-                    listBox.Items.Add(buttonValue);
-                }
-                else
-                {
-                    string currentText = listBox.Items[0].ToString();
-                    listBox.Items[0] = currentText + buttonValue;
-                }
-            }
-        }
         
 
        
@@ -213,7 +216,7 @@ namespace Kalkulator_V1
         {
             if (_klawiszFunkcyjnyByl == true) //zapobiega wykonaniu akcji po spamowaniu funkcji
             {
-                
+                _jakiKlawiszFunkcyjny = "+";//bez sensu
             }
             else
             {
@@ -233,19 +236,22 @@ namespace Kalkulator_V1
         }
         private void buttRuwnasie_Click(object sender, EventArgs e)
         {
-            string currentText = listBox.Items[0].ToString();
-            listBox.Items.Clear();
-            calc.Rownasie(currentText);
-            label2.Text = calc.displayResult();
-            label1.Text = "=";
-            listBox.Items.Add(calc.displayResult());
-            calc.Clean();
+            if (listBox.Items.Count > 0)
+            {
+                string currentText = listBox.Items[0].ToString();
+                listBox.Items.Clear();
+                calc.Rownasie(currentText);
+                label2.Text = "";
+                label1.Text = "";
+                listBox.Items.Add(calc.displayResult());
+                calc.Clean();
+            }
         }
         private void buttMinus_Click(object sender, EventArgs e)
         {            
             if (_klawiszFunkcyjnyByl == true) //zapobiega wykonaniu akcji po spamowaniu funkcji
             {
-
+                _jakiKlawiszFunkcyjny = "-";//bez sensu
             }
             else
             {
@@ -262,52 +268,124 @@ namespace Kalkulator_V1
             }
 
         }
+        private void buttRazy_Click(object sender, EventArgs e)
+        {
+            if (_klawiszFunkcyjnyByl == true) //zapobiega wykonaniu akcji po spamowaniu funkcji
+            {
+                _jakiKlawiszFunkcyjny = "*";//bez sensu
+            }
+            else
+            {
+                if (label2.Text == "")
+                {
+                    _klawiszFunkcyjnyByl = true;
+                    _jakiKlawiszFunkcyjny = "*";
+                    string currentText = listBox.Items[0].ToString();
+                    int firstOpHandler = 1;
+                    listBox.Items.Clear();
+
+                    calc.Razy(currentText, firstOpHandler);
+                    label2.Text = calc.displayResult();
+                    label1.Text = calc.displayIndicator();
+                    listBox.Items.Add(calc.displayResult());
+                }
+                else
+                {
+                    _klawiszFunkcyjnyByl = true;
+                    _jakiKlawiszFunkcyjny = "*";
+                    string currentText = listBox.Items[0].ToString();
+                    int firstOpHandler = 0;
+                    listBox.Items.Clear();
+
+                    calc.Razy(currentText, firstOpHandler);
+                    label2.Text = calc.displayResult();
+                    label1.Text = calc.displayIndicator();
+                    listBox.Items.Add(calc.displayResult());
+                }
+                
+            }
+            
+        }
 
         private void buttDzielenie_Click(object sender, EventArgs e)
         {
+            if (_klawiszFunkcyjnyByl == true) //zapobiega wykonaniu akcji po spamowaniu funkcji
+            {
+                _jakiKlawiszFunkcyjny = "/";//bez sensu
+            }
+            else
+            {
+                if (label2.Text == "")
+                {
+                    _klawiszFunkcyjnyByl = true;
+                    _jakiKlawiszFunkcyjny = "/";
+                    string currentText = listBox.Items[0].ToString();
+                    int firstOpHandler = 1;
+                    listBox.Items.Clear();
 
+                    calc.Dzielenie(currentText, firstOpHandler);
+                    label2.Text = calc.displayResult();
+                    label1.Text = calc.displayIndicator();
+                    listBox.Items.Add(calc.displayResult());
+                }
+                else
+                {
+                    _klawiszFunkcyjnyByl = true;
+                    _jakiKlawiszFunkcyjny = "/";
+                    string currentText = listBox.Items[0].ToString();
+                    int firstOpHandler = 0;
+                    listBox.Items.Clear();
+
+                    calc.Dzielenie(currentText, firstOpHandler);
+                    label2.Text = calc.displayResult();
+                    label1.Text = calc.displayIndicator();
+                    listBox.Items.Add(calc.displayResult());
+                }
+
+            }
         }
+        
 
         private void buttDel_Click(object sender, EventArgs e)
         {
-
+            label2.Text = "";
+            label1.Text = "";
+            listBox.Items.Clear();
+            calc.Clean();
         }
 
         private void buttDot_Click(object sender, EventArgs e)
         {
-
+            string buttonValue = ",";
+            string currentText = listBox.Items[0].ToString();
+            if (currentText.Contains(","))
+            {
+                currentText = currentText.Replace(",", "");
+                listBox.Items[0] = currentText;
+            }
+            else
+            {
+                listBox.Items[0] = currentText + buttonValue;
+            }
         }
 
         private void buttPM_Click(object sender, EventArgs e)
         {
-
+            string buttonValue = "-";
+            string currentText = listBox.Items[0].ToString();
+            if (currentText.Contains("-"))
+            {
+                currentText = currentText.Replace("-", "");
+                listBox.Items[0] =  currentText;
+            }
+            else
+            {
+                listBox.Items[0] = buttonValue + currentText;
+            }
+            
+           
         }
 
-        private void buttRazy_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //public void DisplayItemsInListBox(string value)
-        //{
-        //    if (isFunctionClicked == false)
-        //    {
-        //        if (listBox.Items.Count == 0)
-        //        {
-        //            listBox.Items.Add(value);
-        //        }
-        //        else
-        //        {
-        //            string currentText = listBox.Items[0].ToString();
-        //            listBox.Items[0] = currentText + value;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        listBox.Items.Clear();
-        //        listBox.Items.Add(value);
-        //        isFunctionClicked = false;
-        //    }
-        //}
+       
     }
 }

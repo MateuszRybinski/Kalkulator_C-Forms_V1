@@ -12,11 +12,6 @@ namespace Kalkulator_V1
 {
     internal class Calculator
     {
-
-
-        
-        
-
         public string displayResult()
         {
             string value = _result.ToString();
@@ -37,22 +32,34 @@ namespace Kalkulator_V1
             _lastOperation = function;
             _currentValue = double.Parse(display);
             Logic(display, function);
-            Console.WriteLine("calculator(void Plus) _result " + _result);
         }
         public void Minus(string display)
         {
             string function = "-";
             _lastOperation = function;
             _currentValue = double.Parse(display);
-            Logic(display, function);
-            Console.WriteLine("calculator(void Plus) _result " + _result);
+            Logic(display, function);            
         }
         public void Rownasie(string display)
         {
             string function = "=";
             Logic(display, function);
-            //display tutaj to result
-
+        }
+        public void Razy(string display, int firstOpHandler)
+        {
+            string function = "*";
+            _lastOperation = function;
+            _result = _result + firstOpHandler;
+            _currentValue = double.Parse(display);
+            Logic(display, function);
+        }
+        public void Dzielenie(string display, int firstOpHandler)
+        {
+            string function = "/";
+            _lastOperation = function;
+            _result = _result + firstOpHandler;
+            _currentValue = double.Parse(display);
+            Logic(display, function);
         }
         
         private void Logic(string value, string function)
@@ -65,20 +72,44 @@ namespace Kalkulator_V1
                 case "-":
                     _result = _currentValue - _result;
                     break;
+                case "*":
+                    _result = _currentValue * _result;
+                    break;
+                case "/":
+                    if (_result != 0)
+                    {
+                        _result = _currentValue / _result;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Błąd: Dzielenie przez zero!");
+                        _result = 0; // lub inna wartość obsługująca błąd
+                    }
+                    break;
                 case "=":
-                    Console.WriteLine("Jestem w case=");                    
                     double value2 = double.Parse(value);
                     switch (_lastOperation)
                     {
                         case "+":
-                            _result = _result + value2;
-                            Console.WriteLine("Calculator rownasie wynik :" + _result);
+                            _result = _result + value2;                            
                             break;
-
                         case "-":
                             _result = _result - value2;
                             break;
-                            
+                        case "*":
+                            _result = _result * value2;
+                            break;
+                        case "/":
+                            if (_result != 0)
+                            {
+                                _result = _result  / value2 ;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Błąd: Dzielenie przez zero!");
+                                _result = 0; // lub inna wartość obsługująca błąd
+                            }
+                            break;
                         default:
                             break;
                     }
@@ -93,7 +124,13 @@ namespace Kalkulator_V1
             _result = 0; // to co obliczyło
             _lastOperation = null; // która operacja ma sie wykonać
         }
+        public void CleanEquals()
+        {
+            _currentValue = 0;
+            //_result = 0; // to co obliczyło
+            _lastOperation = null; // która operacja ma sie wykonać
+        }
 
-       
+
     }
 }
