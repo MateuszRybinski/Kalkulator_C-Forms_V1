@@ -15,9 +15,7 @@ namespace Kalkulator_V1
 
 
         
-        private double _currentValue = 0;
-        private double _result = 0; // to co obliczyło
-        private string _lastOperation = null; // która operacja ma sie wykonać
+        
 
         public string displayResult()
         {
@@ -30,13 +28,23 @@ namespace Kalkulator_V1
             return value;
         }
 
-
+        private double _currentValue = 0;
+        private double _result = 0; // to co obliczyło
+        private string _lastOperation = null; // która operacja ma sie wykonać
         public void Plus(string display)
         {
             string function = "+";
+            _lastOperation = function;
             _currentValue = double.Parse(display);
             Logic(display, function);
-            Console.WriteLine("calculator"+_result);
+            Console.WriteLine("calculator(void Plus) _result " + _result);
+        }
+        public void Rownasie(string display)
+        {
+            string function = "=";
+            Logic(display, function);
+            //display tutaj to result
+
         }
         
         private void Logic(string value, string function)
@@ -47,15 +55,34 @@ namespace Kalkulator_V1
                     _result = _currentValue + _result;
                     break;
                 case "-":
-                    Console.WriteLine("Wybrałeś opcję B");
+                    
                     break;
-                case "C":
-                    Console.WriteLine("Wybrałeś opcję C");
+                case "=":
+                    Console.WriteLine("Jestem w case=");                    
+                    double value2 = double.Parse(value);
+                    switch (_lastOperation)
+                    {
+                        case "+":
+                            _result = _result + value2;
+                            Console.WriteLine("Calculator rownasie wynik :" + _result);
+                            break;
+
+                        case "-":
+                            break;
+                            
+                        default:
+                            break;
+                    }
                     break;
-                default:
-                    Console.WriteLine("Nieprawidłowa opcja");
+                default:                    
                     break;
             }
+        }
+        public void Clean()
+        {
+            _currentValue = 0;
+            _result = 0; // to co obliczyło
+            _lastOperation = null; // która operacja ma sie wykonać
         }
 
         //public void Minus(string display)
