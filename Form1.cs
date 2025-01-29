@@ -237,15 +237,30 @@ namespace Kalkulator_V1
             listBox.Items.Clear();
             calc.Rownasie(currentText);
             label2.Text = calc.displayResult();
-            label1.Text = calc.displayIndicator();
+            label1.Text = "=";
             listBox.Items.Add(calc.displayResult());
             calc.Clean();
         }
         private void buttMinus_Click(object sender, EventArgs e)
-        {
-            
-            string currentText = listBox.Items[0].ToString();
-            
+        {            
+            if (_klawiszFunkcyjnyByl == true) //zapobiega wykonaniu akcji po spamowaniu funkcji
+            {
+
+            }
+            else
+            {
+                _klawiszFunkcyjnyByl = true;
+                _jakiKlawiszFunkcyjny = "-";
+                string currentText = listBox.Items[0].ToString();
+
+                listBox.Items.Clear();
+
+                calc.Minus(currentText);
+                label2.Text = calc.displayResult();
+                label1.Text = calc.displayIndicator();
+                listBox.Items.Add(calc.displayResult());
+            }
+
         }
 
         private void buttDzielenie_Click(object sender, EventArgs e)

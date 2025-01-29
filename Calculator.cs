@@ -39,6 +39,14 @@ namespace Kalkulator_V1
             Logic(display, function);
             Console.WriteLine("calculator(void Plus) _result " + _result);
         }
+        public void Minus(string display)
+        {
+            string function = "-";
+            _lastOperation = function;
+            _currentValue = double.Parse(display);
+            Logic(display, function);
+            Console.WriteLine("calculator(void Plus) _result " + _result);
+        }
         public void Rownasie(string display)
         {
             string function = "=";
@@ -55,7 +63,7 @@ namespace Kalkulator_V1
                     _result = _currentValue + _result;
                     break;
                 case "-":
-                    
+                    _result = _currentValue - _result;
                     break;
                 case "=":
                     Console.WriteLine("Jestem w case=");                    
@@ -68,6 +76,7 @@ namespace Kalkulator_V1
                             break;
 
                         case "-":
+                            _result = _result - value2;
                             break;
                             
                         default:
@@ -85,13 +94,6 @@ namespace Kalkulator_V1
             _lastOperation = null; // która operacja ma sie wykonać
         }
 
-        //public void Minus(string display)
-        //{
-        //    string function = "-";
-        //}
-        //public void Ruwnasie(string display)
-        //{
-        //    string function = "=";
-        //}
+       
     }
 }
