@@ -73,7 +73,7 @@
             this.panelTerminal.Location = new System.Drawing.Point(8, 7);
             this.panelTerminal.Margin = new System.Windows.Forms.Padding(8, 7, 7, 3);
             this.panelTerminal.Name = "panelTerminal";
-            this.panelTerminal.Size = new System.Drawing.Size(305, 140);
+            this.panelTerminal.Size = new System.Drawing.Size(304, 140);
             this.panelTerminal.TabIndex = 0;
             // 
             // panel1
@@ -83,7 +83,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 24);
+            this.panel1.Size = new System.Drawing.Size(304, 24);
             this.panel1.TabIndex = 3;
             // 
             // label2
@@ -93,7 +93,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(203, 0);
+            this.label2.Location = new System.Drawing.Point(202, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 2;
@@ -106,7 +106,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(254, 0);
+            this.label1.Location = new System.Drawing.Point(253, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 1;
@@ -120,7 +120,7 @@
             this.listBox.FormattingEnabled = true;
             this.listBox.Location = new System.Drawing.Point(0, 23);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(305, 117);
+            this.listBox.Size = new System.Drawing.Size(304, 117);
             this.listBox.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -155,7 +155,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(314, 245);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(313, 245);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // buttMinus
@@ -163,7 +163,7 @@
             this.buttMinus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttMinus.Location = new System.Drawing.Point(237, 186);
             this.buttMinus.Name = "buttMinus";
-            this.buttMinus.Size = new System.Drawing.Size(74, 56);
+            this.buttMinus.Size = new System.Drawing.Size(73, 56);
             this.buttMinus.TabIndex = 15;
             this.buttMinus.Text = "-";
             this.buttMinus.UseVisualStyleBackColor = true;
@@ -214,7 +214,7 @@
             this.buttPlus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttPlus.Location = new System.Drawing.Point(237, 125);
             this.buttPlus.Name = "buttPlus";
-            this.buttPlus.Size = new System.Drawing.Size(74, 55);
+            this.buttPlus.Size = new System.Drawing.Size(73, 55);
             this.buttPlus.TabIndex = 11;
             this.buttPlus.Text = "+";
             this.buttPlus.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@
             this.buttDzielenie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttDzielenie.Location = new System.Drawing.Point(237, 64);
             this.buttDzielenie.Name = "buttDzielenie";
-            this.buttDzielenie.Size = new System.Drawing.Size(74, 55);
+            this.buttDzielenie.Size = new System.Drawing.Size(73, 55);
             this.buttDzielenie.TabIndex = 7;
             this.buttDzielenie.Text = ":";
             this.buttDzielenie.UseVisualStyleBackColor = true;
@@ -314,7 +314,7 @@
             this.buttDel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttDel.Location = new System.Drawing.Point(237, 3);
             this.buttDel.Name = "buttDel";
-            this.buttDel.Size = new System.Drawing.Size(74, 55);
+            this.buttDel.Size = new System.Drawing.Size(73, 55);
             this.buttDel.TabIndex = 3;
             this.buttDel.Text = "DEL";
             this.buttDel.UseVisualStyleBackColor = true;
@@ -373,7 +373,7 @@
             this.buttRuwnasie.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.buttRuwnasie.Location = new System.Drawing.Point(81, 3);
             this.buttRuwnasie.Name = "buttRuwnasie";
-            this.buttRuwnasie.Size = new System.Drawing.Size(230, 90);
+            this.buttRuwnasie.Size = new System.Drawing.Size(229, 90);
             this.buttRuwnasie.TabIndex = 19;
             this.buttRuwnasie.Text = "=";
             this.buttRuwnasie.UseVisualStyleBackColor = false;
@@ -385,7 +385,7 @@
             this.panelSumownik.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSumownik.Location = new System.Drawing.Point(3, 404);
             this.panelSumownik.Name = "panelSumownik";
-            this.panelSumownik.Size = new System.Drawing.Size(314, 96);
+            this.panelSumownik.Size = new System.Drawing.Size(313, 95);
             this.panelSumownik.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -400,7 +400,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(314, 96);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(313, 95);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
             // panelKlawiatura
@@ -409,7 +409,7 @@
             this.panelKlawiatura.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelKlawiatura.Location = new System.Drawing.Point(3, 153);
             this.panelKlawiatura.Name = "panelKlawiatura";
-            this.panelKlawiatura.Size = new System.Drawing.Size(314, 245);
+            this.panelKlawiatura.Size = new System.Drawing.Size(313, 245);
             this.panelKlawiatura.TabIndex = 3;
             // 
             // tableMainLayoutPanel
@@ -426,7 +426,7 @@
             this.tableMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableMainLayoutPanel.Size = new System.Drawing.Size(320, 503);
+            this.tableMainLayoutPanel.Size = new System.Drawing.Size(319, 502);
             this.tableMainLayoutPanel.TabIndex = 0;
             // 
             // Form1
@@ -434,7 +434,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(320, 503);
+            this.ClientSize = new System.Drawing.Size(319, 502);
             this.Controls.Add(this.tableMainLayoutPanel);
             this.MinimumSize = new System.Drawing.Size(335, 541);
             this.Name = "Form1";

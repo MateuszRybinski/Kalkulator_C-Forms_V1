@@ -24,8 +24,8 @@ namespace Kalkulator_V1
         }
 
         private double _currentValue = 0;
-        private double _result = 0; // to co obliczyło
-        private string _lastOperation = null; // która operacja ma sie wykonać
+        private double _result = 0; 
+        private string _lastOperation = null; 
         public void Plus(string display)
         {
             string function = "+";
@@ -83,7 +83,7 @@ namespace Kalkulator_V1
                     else
                     {
                         Console.WriteLine("Błąd: Dzielenie przez zero!");
-                        _result = 0; // lub inna wartość obsługująca błąd
+                        _result = 0; 
                     }
                     break;
                 case "=":
@@ -107,7 +107,7 @@ namespace Kalkulator_V1
                             else
                             {
                                 Console.WriteLine("Błąd: Dzielenie przez zero!");
-                                _result = 0; // lub inna wartość obsługująca błąd
+                                _result = 0;
                             }
                             break;
                         default:
@@ -121,14 +121,13 @@ namespace Kalkulator_V1
         public void Clean()
         {
             _currentValue = 0;
-            _result = 0; // to co obliczyło
-            _lastOperation = null; // która operacja ma sie wykonać
+            _result = 0;  
+            _lastOperation = null; 
         }
         public void CleanEquals()
         {
-            _currentValue = 0;
-            //_result = 0; // to co obliczyło
-            _lastOperation = null; // która operacja ma sie wykonać
+            _currentValue = 0;            
+            _lastOperation = null; 
         }
 
 
